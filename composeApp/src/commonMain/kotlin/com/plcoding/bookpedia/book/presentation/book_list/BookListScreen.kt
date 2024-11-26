@@ -79,14 +79,16 @@ fun BookListScreen(
     val searchResultsListState = rememberLazyListState()
     val favoritesBooksListState = rememberLazyListState()
 
-    LaunchedEffect(state.searchResults)
-    {
+    LaunchedEffect(state.searchResults) {
         searchResultsListState.animateScrollToItem(0)
     }
 
-    LaunchedEffect(state.favoriteBooks)
-    {
-        favoritesBooksListState.animateScrollToItem(0)
+    LaunchedEffect(state.selectedTabIndex) {
+        pagerState.animateScrollToPage(state.selectedTabIndex)
+    }
+
+    LaunchedEffect(pagerState.currentPage) {
+        onAction(BookListAction.OnTabSelected(pagerState.currentPage))
     }
 
     Column(
@@ -193,11 +195,9 @@ fun BookListScreen(
                                             Text(
                                                 text = stringResource(Res.string.no_search_result),
                                                 textAlign = TextAlign.Center,
-                                                style = MaterialTheme.typography.headlineSmall,
-                                                color = MaterialTheme.colorScheme.error
+                                                style = MaterialTheme.typography.headlineSmall
                                             )
                                         }
-
                                         else -> {
                                             BookList(
                                                 books = state.searchResults,
@@ -218,7 +218,6 @@ fun BookListScreen(
                                         text = stringResource(Res.string.no_favorites_books),
                                         textAlign = TextAlign.Center,
                                         style = MaterialTheme.typography.headlineSmall,
-                                        color = MaterialTheme.colorScheme.error
                                     )
                                 } else {
                                     BookList(

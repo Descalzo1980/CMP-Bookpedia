@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.plcoding.bookpedia.book.domain.Book
 import com.plcoding.bookpedia.book.presentation.book_list.BookListScreen
 import com.plcoding.bookpedia.book.presentation.book_list.BookListState
+import com.plcoding.bookpedia.book.presentation.book_list.books
 import com.plcoding.bookpedia.book.presentation.book_list.components.BookSearchBar
 
 @Preview(backgroundColor = 0xFFF0EAE2, showBackground = true)
@@ -27,21 +27,6 @@ fun BookSearchBarPreview() {
             modifier = Modifier.fillMaxWidth()
         )
     }
-}
-private val books = (1..100).map {
-    Book(
-        id = it.toString(),
-        title = "Book $it",
-        imageUrl = "",
-        author = listOf("Captain Beard"),
-        description = "Description $it",
-        language = listOf("Language $it"),
-        firstPublishYear = "Year $it",
-        averageRating = 4.778999,
-        ratingCount = 5,
-        numPage = 100,
-        numEdition = 3
-    )
 }
 
 @Preview
