@@ -29,9 +29,7 @@ fun BookList(
     ){
         items(
             items = books,
-            key = {
-                book -> book.id
-            }
+            key = { book -> book.id }
             ){ book ->
             BookListItem(
                 book = book,

@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.plcoding.bookpedia.book.domain.Book
 import com.plcoding.bookpedia.book.presentation.book_list.BookListScreen
-import com.plcoding.bookpedia.book.presentation.book_list.BookListScreenRoot
 import com.plcoding.bookpedia.book.presentation.book_list.BookListState
 import com.plcoding.bookpedia.book.presentation.book_list.components.BookSearchBar
 

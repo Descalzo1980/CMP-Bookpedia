@@ -61,7 +61,9 @@ fun BookListItem(
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth()
-                .height(IntrinsicSize.Min)
+                .height(IntrinsicSize.Min),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Box(
                 modifier = Modifier
@@ -106,9 +108,11 @@ fun BookListItem(
                     }
                 }
             }
-            Column(modifier = Modifier.fillMaxHeight().weight(1f),
-                verticalArrangement = Arrangement.Center)
-            {
+            Column(modifier = Modifier
+                .fillMaxHeight()
+                .weight(1f),
+                verticalArrangement = Arrangement.Center
+            ) {
                 Text(
                     text = book.title,
                     style = MaterialTheme.typography.titleMedium,
