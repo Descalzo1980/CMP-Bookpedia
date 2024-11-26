@@ -3,7 +3,7 @@ package com.plcoding.bookpedia.book.domain
 data class Book(
     val id : String,
     val title: String,
-    val image: String,
+    val imageUrl: String,
     val author: List<String>,
     val description: String?,
     val language: List<String>,
