@@ -31,7 +31,7 @@ fun BookListScreenRoot(
 }
 
 @Composable
-fun BookListScreen(
+private fun BookListScreen(
     state: BookListState,
     onAction: (BookListAction) -> Unit,
 ){
