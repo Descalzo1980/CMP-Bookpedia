@@ -18,7 +18,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -36,13 +35,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import cmp_bookpedia.composeapp.generated.resources.Res
 import cmp_bookpedia.composeapp.generated.resources.book_error_2
-import cmp_bookpedia.composeapp.generated.resources.close_hint
 import coil3.compose.rememberAsyncImagePainter
 import com.plcoding.bookpedia.book.domain.Book
 import com.plcoding.bookpedia.core.presentation.LightBlue
 import com.plcoding.bookpedia.core.presentation.SandYellow
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
 import kotlin.math.round
 
 @Composable
@@ -119,7 +116,7 @@ fun BookListItem(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
-                book.author.firstOrNull()?.let { authorName ->
+                book.authors.firstOrNull()?.let { authorName ->
                     Text(
                         text = authorName,
                         style = MaterialTheme.typography.bodyLarge,

@@ -232,7 +232,6 @@ fun BookListScreen(
                             }
                         }
                     }
-
                 }
             }
         }

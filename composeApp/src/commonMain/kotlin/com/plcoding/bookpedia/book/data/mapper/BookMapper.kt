@@ -3,22 +3,22 @@ package com.plcoding.bookpedia.book.data.mapper
 import com.plcoding.bookpedia.book.data.dto.SearchBookDto
 import com.plcoding.bookpedia.book.domain.Book
 
-fun SearchBookDto.toBook(): Book{
+fun SearchBookDto.toBook(): Book {
     return Book(
-        id = id,
+        id = id.substringAfterLast("/"),
         title = title,
-        imageUrl = if (coverKey != null) {
+        imageUrl = if(coverKey != null) {
             "https://covers.openlibrary.org/b/olid/${coverKey}-L.jpg"
-        }else {
-            "https://covers.openlibrary.org/b/olid/${coverAlternativeKey}-L.jpg"
+        } else {
+            "https://covers.openlibrary.org/b/id/${coverAlternativeKey}-L.jpg"
         },
-        author = authorNames ?: emptyList(),
+        authors = authorNames ?: emptyList(),
         description = null,
-        language = null ?: emptyList(),
+        languages = languages ?: emptyList(),
         firstPublishYear = firstPublishYear.toString(),
-        averageRating = ratingAverage,
-        ratingCount = ratingCount,
-        numPage = numPagesMedian,
-        numEdition = numEditions ?: 0
+        averageRating = ratingsAverage,
+        ratingCount = ratingsCount,
+        numPages = numPagesMedian,
+        numEditions = numEditions ?: 0
     )
 }
