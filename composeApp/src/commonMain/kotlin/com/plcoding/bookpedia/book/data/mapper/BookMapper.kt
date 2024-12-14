@@ -1,5 +1,6 @@
 package com.plcoding.bookpedia.book.data.mapper
 
+import com.plcoding.bookpedia.book.data.database.BookEntity
 import com.plcoding.bookpedia.book.data.dto.SearchBookDto
 import com.plcoding.bookpedia.book.domain.Book
 
@@ -22,3 +23,18 @@ fun SearchBookDto.toBook(): Book {
         numEditions = numEditions ?: 0
     )
 }
+
+fun Book.toBookEntity(): BookEntity =
+    BookEntity(
+        id = id,
+        title = title,
+        description = description,
+        language = languages,
+        imageUrl = imageUrl,
+        authors = authors,
+        firstPublishYear = firstPublishYear,
+        ratingAverage = averageRating,
+        ratingCount = ratingCount,
+        numPagesMedian = numPages,
+        numEditions = numEditions
+    )
